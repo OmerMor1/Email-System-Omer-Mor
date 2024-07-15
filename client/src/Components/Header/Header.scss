@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #e8ebf7;
+  .left-section {
+    display: flex;
+    align-items: center;
+    button {
+      margin-right: 10px;
+    }
+  }
+  .inbox-button,
+  .outbox-button,
+  .draft-button {
+    background-color: #ffffff;
+    color: #2f3d55;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    &.active {
+      background-color: #1a73e8;
+      color: #ffffff;
+    }
+  }
+  .search-bar {
+    margin-left: 10px;
+  }
+  .new-email-button {
+    background-color: #1a73e8;
+    color: #ffffff;
+    border-radius: 5px;
+  }
+  .user-icon {
+    background-color: #d49744;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-weight: bold;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+}

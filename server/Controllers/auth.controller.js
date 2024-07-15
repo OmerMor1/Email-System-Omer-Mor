@@ -1,9 +1,11 @@
-import User from "../models/users.js";
+import User from "../models/user.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+const secret = "your_secret_key";
 
 export const Register = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
-  console.log("req.body", req.body);
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -18,7 +20,12 @@ export const Register = async (req, res) => {
       password: hashedPassword,
     });
     await newUser.save();
-    res.status(201).json({ message: "User registered successfully" });
+
+    const token = jwt.sign({ userId: newUser._id }, secret, {
+      expiresIn: "1h",
+    });
+
+    res.status(201).json({ message: "User registered successfully", token });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ message: "An error occurred" });
@@ -26,7 +33,6 @@ export const Register = async (req, res) => {
 };
 
 export const Login = async (req, res) => {
-  console.log("req.body", req.body);
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -37,11 +43,14 @@ export const Login = async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-    res.status(200).json({ message: "Login successful" });
+    const token = jwt.sign({ userId: user._id }, secret, { expiresIn: "1h" });
+    res.status(200).json({ message: "Login successful", token });
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).json({ message: "An error occurred" });
   }
 };
 
-export const Logout = () => {};
+export const Logout = (req, res) => {
+  res.status(200).json({ message: "Logout successful" });
+};

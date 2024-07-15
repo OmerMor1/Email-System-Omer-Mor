@@ -40,7 +40,6 @@ const Register = () => {
         setErr("Passwords do not match");
       } else {
         const { firstName, lastName, email, password } = inputs;
-        console.log("inputs", inputs);
         const res = await axios.post("http://localhost:5000/auth/register", {
           firstName,
           lastName,

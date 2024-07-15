@@ -1,0 +1,82 @@
+.email-container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.email-box {
+  padding: 16px;
+  border-radius: 10px;
+  background-color: white;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.send-button {
+  background-color: #1a73e8;
+  color: white;
+  text-transform: none;
+}
+
+.cancel-button {
+  background-color: red !important;
+  color: white;
+  text-transform: none;
+  margin-right: 8px;
+}
+
+.close-button {
+  margin-left: 8px;
+}
+
+.right-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  margin-top: 16px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chip-label {
+  margin-right: 8px;
+  background-color: #f3f5f9;
+  border-radius: 16px;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+.textField {
+  flex-grow: 1;
+  background-color: #f3f5f9;
+
+  .MuiOutlinedInput-root {
+    height: 30px;
+  }
+}
+
+.subject {
+  margin-top: 16px;
+}
+
+.body {
+  margin-top: 10px;
+  height: 100px;
+
+  .MuiOutlinedInput-root {
+    height: 100%;
+  }
+}
+
+.textField .MuiInputBase-input {
+  box-sizing: border-box;
+}

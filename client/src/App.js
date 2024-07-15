@@ -1,8 +1,8 @@
 import { React } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Register from "./Components/Register/Register.jsx";
-import InboxPage from "./Components/InboxPage/InboxPage.jsx";
-import Login from "./Components/Login/Login.jsx";
+import Register from "./Pages/Register/Register.jsx";
+import InboxPage from "./Pages/InboxPage/InboxPage.jsx";
+import Login from "./Pages/Login/Login.jsx";
 
 function App() {
   return (
